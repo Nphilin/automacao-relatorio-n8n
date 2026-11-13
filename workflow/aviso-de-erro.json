@@ -1,0 +1,64 @@
+{
+  "name": "Aviso de erro",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "51124457-a84c-491c-a64d-9028be822e40",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "sendTo": "example@gmail.com",
+        "subject": "Falha no relatório semanal",
+        "message": "=Workflow: {{ $json.workflow.name }}<br>\nNode com erro: {{ $json.execution.lastNodeExecuted }}<br>\nErro: {{ $json.execution.error.message }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "05a22c60-4de7-47d1-811f-061e1600bf89",
+      "name": "Send a message",
+      "webhookId": "dba5183c-fdbf-4193-871d-c2e4355bac93"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "42426154-76c8-46c2-8645-c960cf6d8e96",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "id": "fcLo0eC4Dm9itYlu",
+  "tags": []
+}
